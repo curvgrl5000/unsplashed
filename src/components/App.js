@@ -1,9 +1,10 @@
 import React from 'react';
-import SearchBar from './components/SearchBar';
+import SearchBar from './SearchBar';
+import './app.css'; 
 
 function App() {
   return (
-    <div>
+    <div className="ui container tinyForm">
       <SearchBar />
     </div>
   );
