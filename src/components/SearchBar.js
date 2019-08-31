@@ -1,44 +1,49 @@
 import React from 'react';
 import './searchBar.css'; 
 
-let searchQuery = '';
-
 class SearchBar extends React.Component {
   constructor(props){
   	super(props);
   	this.state = {
-  		search:'',
+  		search:'jamming, musical performances, solos',
   		message: ''
   	}
   }
   
-  onInputChange(event){
-    event.preventDefault();
-    console.log( event.target.value );
-    searchQuery = event.target.value;
+  onInputChange = (e) => {
+  	e.preventDefault()
+    console.log( e.target.value );
+    this.setState({ search: e.target.value.toUpperCase() });
 	}
-  onInputSubmit(event, searchQuery){
-  	event.preventDefault();
-  	console.log(searchQuery);
-    this.setState({search: searchQuery})
+
+  onHandleSubmit = (e) => {
+    this.setState({ message: `We are looking for: ${this.state.search}`});
+    this.setState({ search: " " });
+    e.preventDefault()
   }
-  onInputClick(event){
-  	event.preventDefault();
-  	console.log("Something was clicked")
+
+  onInputClick = (e) => {
+  	e.preventDefault();
+  	console.log("Something was clicked");
+    this.setState({ search:'jamming, musical performances, solos' });
+  	this.setState({ message: ""});
   }
 
   render() {
 	  return (
 	    <div className="ui segment">
-	    	<form className="ui form">
+	    	<form className="ui form" onSubmit={this.onHandleSubmit}>
 	    		<div className="field">
 	    		  <label className="">Image Search</label>
-	          <input type="text" onChange={(event) => console.log(event.target.value)} />
-	          <button onSubmit={this.onInputSubmit}>submit</button>
+	          <input
+	            type="text" 
+	            value={this.state.search} 
+	            onChange={this.onInputChange} />
+	            <input type="submit" value="Submit" />
+	            <input type="button" name="cancel" value="Cancel" onClick={this.onInputClick} />
 	        </div>
 	      </form>
-	      <div>{this.state.search}</div>  
-	      <div>{this.state.message}</div>  
+	      <div className="message">{this.state.message}</div>  
 	    </div>
 	  );
 	}
@@ -53,5 +58,5 @@ export default SearchBar;
 // Here we're using an error function, grabbing the event and doing the same thing the separate function was doing:
 // <input type="text" onChange={(e) => console.log(e.target.value)} />
 
-
+//https://stackoverflow.com/questions/43922508/clear-and-reset-form-input-fields/43922523
 
