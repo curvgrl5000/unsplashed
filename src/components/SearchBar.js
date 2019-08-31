@@ -33,7 +33,7 @@ class SearchBar extends React.Component {
 	    	<form className="ui form">
 	    		<div className="field">
 	    		  <label className="">Image Search</label>
-	          <input type="text" onChange={this.onInputChange} />
+	          <input type="text" onChange={(event) => console.log(event.target.value)} />
 	          <button onSubmit={this.onInputSubmit}>submit</button>
 	        </div>
 	      </form>
@@ -45,3 +45,13 @@ class SearchBar extends React.Component {
 }
 
 export default SearchBar;
+
+// Same exact results, they do the same thing:
+// Here we're defining a separate function ont he class:
+// <input type="text" onChange={this.onInputChange} /> 
+
+// Here we're using an error function, grabbing the event and doing the same thing the separate function was doing:
+// <input type="text" onChange={(e) => console.log(e.target.value)} />
+
+
+
