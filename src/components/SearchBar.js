@@ -10,12 +10,6 @@ class SearchBar extends React.Component {
   	}
   }
 
-  // Access Key: 
-  // 8dd20cb2d30579d1d53552368b25abae7d7dc7a7141ebdb2a35940833c3e5572
-  
-  // Secret Key:
-  // f2e42aaa1157e4e36e4a48122dd38216cb4f2c05e9e31289d31005995988d84e
-
   // these arrow functions BIND the ideas of 'this' inside of the functions
   // which means we don't have the wacky, undefined error you get with 'this'
   // SEE the this.js file 
