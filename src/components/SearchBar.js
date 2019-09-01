@@ -11,9 +11,9 @@ class SearchBar extends React.Component {
   }
   
   onHandleSubmit = (e) => {
+    e.preventDefault();
     this.setState({ message: `We are looking for: ${this.state.search}`});
     this.setState({ search: " " });
-    e.preventDefault()
   }
 
   onInputClick = (e) => {
@@ -55,3 +55,5 @@ export default SearchBar;
 
 //https://stackoverflow.com/questions/43922508/clear-and-reset-form-input-fields/43922523
 
+// stephengrider.gitub.io/playgrounds/
+// CHECK OUT the THIS excercise.... 'this.js' and run it on RALLYCODING....
