@@ -1,4 +1,12 @@
 class Car {
+	constructor() {
+		this.drive = this.drive.bind(this);
+		// the left hand assignment 'this.drive', is being overwritten by redefining it with 
+		// 'this.drive.bind' which will taking in an argument and defining what the heck 'this' is.
+		// so 'this.drive.bind(this)' is referencing the CURRENT OBJECT being constructed by
+		// the constructor object; which is not exactly easy to define... 
+	}
+
 	setDriveSound(sound) {
 	  this.sound = sound;
 	}

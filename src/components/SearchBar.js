@@ -10,16 +10,30 @@ class SearchBar extends React.Component {
   	}
   }
   
+  // these arrow functions BIND the ideas of 'this' inside of the functions
+  // which means we don't have the wacky, undefined error you get with 'this'
+  // SEE the this.js file 
+  // Also notice that I'm doing the same thing with the arrow function onChange below!!
+
   onHandleSubmit = (e) => {
     e.preventDefault();
     this.setState({ message: `We are looking for: ${this.state.search}`});
     this.setState({ search: " " });
   }
 
+  // Now we can do it this way or we can invoke the onClick with an arrow function below
+  // with the 2nd version of onInputClickTwo.... 
   onInputClick = (e) => {
   	e.preventDefault();
   	console.log("Something was clicked");
     this.setState({ search:'jamming, musical performances, solos' });
+  	this.setState({ message: ""});
+  }
+
+   onInputClickTwo(e){
+   	e.preventDefault();
+  	console.log("Something was clicked");
+    this.setState({ search:'' });
   	this.setState({ message: ""});
   }
 
@@ -30,12 +44,13 @@ class SearchBar extends React.Component {
 	    		<div className="field">
 	    		  <label className="">Image Search</label>
 	          <input
+	            required
 	            type="text" 
 	            value={this.state.search}
 	            placeholder='jamming, musical performances, solos' 
 	            onChange={e => this.setState({ search: e.target.value.toUpperCase() }) } />
 	            <input type="submit" value="Submit" />
-	            <input type="button" name="cancel" value="Cancel" onClick={this.onInputClick} />
+	            <input type="button" id="cancel" name="cancel" value="Cancel" onClick={(e) => this.onInputClickTwo(e)} />
 	        </div>
 	      </form>
 	      <div className="message">{this.state.message}</div>  
