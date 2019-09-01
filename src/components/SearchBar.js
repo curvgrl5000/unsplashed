@@ -19,6 +19,7 @@ class SearchBar extends React.Component {
     e.preventDefault();
     this.setState({ message: `We are looking for: ${this.state.search}`});
     this.setState({ search: " " });
+    this.props.onSubmit(this.state.search);
   }
 
   // Now we can do it this way or we can invoke the onClick with an arrow function below
