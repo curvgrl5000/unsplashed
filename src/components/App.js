@@ -12,7 +12,7 @@ class App extends React.Component {
   	}
   }
   
-  async onSearchSubmit(term){
+  onSearchSubmit = async (term) => {
   	const response = await axios.get('https://api.unsplash.com/search/photos', {
   		params:  { query: term },
       headers: {
@@ -20,16 +20,13 @@ class App extends React.Component {
       } 
   	});
 
-  	console.log(response.data.results);
+  	this.setState({ collection: response.data.results });
   }
 
-  displayImages = (collection) => {
-  	collection.map((image, index) => {
-  		return `<ul>
-  		         <li>
-  		           <img id=${index} src=${image.urls.regular} />
-  		         </li>
-  		        </ul>` 
+  displayImages(collection){
+  	console.log(collection)
+  	collection.map( (image, index) => {
+  		return `<li><img id=${index} src=${image.urls.regular} </li>` 
   	})
   }
 
@@ -37,7 +34,11 @@ class App extends React.Component {
 	  return (
 	    <div className="ui container tinyForm">
 	      <SearchBar onSubmit={this.onSearchSubmit}/>
-	      {this.displayImages(this.state.collection)}
+	      <ul>
+	        {this.displayImages(this.state.collection)}
+	      </ul>
+	      <h2>FOUND: {this.state.collection.length} images!</h2>
+
 	    </div>
 	  );
 	}
