@@ -23,7 +23,7 @@ class App extends React.Component {
 
   displayImages(collection = this.state.collection){
   	const allImages = collection.map( (image, index) => {
-  		return <li><img key={index} id={index} src={image.urls.regular} alt="UNSPLASH ROCKS"/></li> 
+  		return <li><img key={image.id} id={index} src={image.urls.regular} alt="UNSPLASH ROCKS"/></li> 
   	})
   	console.log(allImages);
   	return allImages;
