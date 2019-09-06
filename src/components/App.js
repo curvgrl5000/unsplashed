@@ -23,18 +23,19 @@ class App extends React.Component {
 
   displayImages(collection = this.state.collection){
   	const allImages = collection.map( (image, index) => {
-  		return <li><img id={index} src={image.urls.regular}/></li> 
+  		return <li><img key={index} id={index} src={image.urls.regular} alt="UNSPLASH ROCKS"/></li> 
   	})
   	console.log(allImages);
   	return allImages;
   }
 
+  // This way is done with a component ImageList to render the items
 	render() {
 	  return (
 	    <div className="ui container tinyForm">
 	      <SearchBar onSubmit={this.onSearchSubmit}/>
 	      <ul>
-	      	{this.displayImages(this.state.collection)}
+	      	<ImageList images={this.state.collection}  />
 	      </ul>
 	    </div>
 	  );
@@ -49,13 +50,13 @@ export default App;
 
 
 // CALLING A FUNCTION instead of importing a COMPONENT:
-// render() {
-// 	  return (
-// 	    <div className="ui container tinyForm">
-// 	      <SearchBar onSubmit={this.onSearchSubmit}/>
-// 	      <ul>
-// 	      	{this.displayImages(this.state.collection)}
-// 	      </ul>
-// 	    </div>
-// 	  );
-// 	}
+	// render() {
+	//   return (
+	//     <div className="ui container tinyForm">
+	//       <SearchBar onSubmit={this.onSearchSubmit}/>
+	//       <ul>
+	//       	{this.displayImages(this.state.collection)}
+	//       </ul>
+	//     </div>
+	//   );
+	// }
