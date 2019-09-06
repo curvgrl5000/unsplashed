@@ -1,11 +1,12 @@
 import React from 'react';
+import './imageLayout.css';
 
 const ImageList = (props) => {
 	//console.log(props.images);
   const allImages = props.images.map( ({description, id, urls}) => {
-  		return <li key={id}><img src={urls.regular} alt={description} /></li> 
+  		return <img key={id} src={urls.regular} alt={description} />
   	});
-	return <>{allImages}</>
+	return <div className="imageLayout">{allImages}</div>
 };
 
 export default ImageList;

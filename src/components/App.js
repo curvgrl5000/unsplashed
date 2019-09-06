@@ -34,9 +34,7 @@ class App extends React.Component {
 	  return (
 	    <div className="ui container tinyForm">
 	      <SearchBar onSubmit={this.onSearchSubmit}/>
-	      <ul>
 	      	<ImageList images={this.state.collection} />
-	      </ul>
 	    </div>
 	  );
 	}
