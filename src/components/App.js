@@ -22,8 +22,8 @@ class App extends React.Component {
   }
 
   displayImages(collection = this.state.collection){
-  	const allImages = collection.map( (image, index) => {
-  		return <li><img key={image.id} id={index} src={image.urls.regular} alt="UNSPLASH ROCKS"/></li> 
+  	const allImages = collection.map( ({description, id, urls}) => {
+  		return <li key={id}><img src={urls.regular} alt={description} /></li> 
   	})
   	console.log(allImages);
   	return allImages;
@@ -35,7 +35,7 @@ class App extends React.Component {
 	    <div className="ui container tinyForm">
 	      <SearchBar onSubmit={this.onSearchSubmit}/>
 	      <ul>
-	      	<ImageList images={this.state.collection}  />
+	      	<ImageList images={this.state.collection} />
 	      </ul>
 	    </div>
 	  );
@@ -43,11 +43,6 @@ class App extends React.Component {
 }
 
 export default App;
-
-  // <ul>
-  //   <ImageList images={this.state.collection} />
-  // </ul>
-
 
 // CALLING A FUNCTION instead of importing a COMPONENT:
 	// render() {
