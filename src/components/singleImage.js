@@ -3,23 +3,30 @@ import React from 'react';
 class singleImage extends React.Component{
   constructor(props){
   	super();
-  	this.state = {} // see below on the rationale for not using state...
+  	this.state = {
+  		 spans : 0 
+  	}
+
+  	// see below on the rationale for not using state initially
   	this.imageRef = React.createRef();
+  
   }
 
   componentDidMount(){
   	console.log(this.imageRef.current.addEventListener('load', this.setSpans));
   }
 
-  setSpans= () => {
-    console.log(this.imageRef.current.clientHeight);
+  setSpans = () => {
+    const height = this.imageRef.current.clientHeight;
+    const spans = Math.ceil(height / 10 + 1 ); //+ 1; // adding one rounds it up
+    this.setState({ spans });
   }
  	
 	render(){
-		const {description, urls, id } = this.props.image; 
+		const { description, urls } = this.props.image; 
 
 		return(
-			<div className="imageLayout">
+			<div style={{ gridRowEnd: `span ${this.state.spans}` }}>
 				<img 
 				  ref={this.imageRef}
 				  alt={description} 
