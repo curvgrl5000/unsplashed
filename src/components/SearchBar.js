@@ -6,7 +6,8 @@ class SearchBar extends React.Component {
   	super(props);
   	this.state = {
   		search:'',
-  		message: ''
+  		message: '',
+      startString: ''
   	}
   }
 
@@ -17,7 +18,8 @@ class SearchBar extends React.Component {
 
   onHandleSubmit = (e) => {
     e.preventDefault();
-    this.setState({ message: `We are looking for: ${this.state.search}`});
+    this.setState({ startString: 'Searching for: '})
+    this.setState({ message: `${this.state.search}`});
     this.setState({ search: " " });
     this.props.onSubmit(this.state.search);
   }
@@ -26,35 +28,40 @@ class SearchBar extends React.Component {
   // with the 2nd version of onInputClickTwo.... 
   onInputClick = (e) => {
   	e.preventDefault();
-  	console.log("Something was clicked");
+  	// console.log("Something was clicked");
     this.setState({ search:'jamming, musical performances, solos' });
   	this.setState({ message: ""});
   }
 
    onInputClickTwo(e){
    	e.preventDefault();
-  	console.log("Something was clicked");
+  	// console.log("Something was clicked");
     this.setState({ search:'' });
   	this.setState({ message: ""});
   }
 
   render() {
+    
 	  return (
 	    <div className="ui segment">
 	    	<form className="ui form" onSubmit={this.onHandleSubmit}>
 	    		<div className="field">
-	    		  <label className="">Image Search</label>
+	    		  <label className="title">Image Search</label>
 	          <input
 	            required
 	            type="text" 
 	            value={this.state.search}
 	            placeholder='jamming, musical performances, solos' 
 	            onChange={e => this.setState({ search: e.target.value.toUpperCase() }) } />
-	            <input type="submit" value="Submit" />
-	            <input type="button" id="cancel" name="cancel" value="Cancel" onClick={(e) => this.onInputClickTwo(e)} />
-	        </div>
+              <div className="selections">
+                <h1 className="message">{this.state.startString}<span className="start">{this.state.message}</span></h1>
+                <div className="buttons">  
+  	              <input type="submit" value="Submit" />
+  	              <input type="button" id="cancel" name="cancel" value="Cancel" onClick={(e) => this.onInputClickTwo(e)} />
+                </div>
+	            </div> 
+          </div>
 	      </form>
-	      <div className="message">{this.state.message}</div>  
 	    </div>
 	  );
 	}

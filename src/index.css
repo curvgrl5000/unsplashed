@@ -17,3 +17,29 @@ code {
 .hidden {
 	visibility: hidden;
 }
+
+.selections {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+input[type="submit"] {
+    margin: .5em 0;
+}
+
+#cancel {
+  margin: .5em 0 .5rem 1rem;
+}
+
+.start {
+  color: #22beef;
+}
+.message {
+  margin: 0;
+  color: #4864b0;
+}
+.title {
+  text-transform: uppercase!important;
+}
+
