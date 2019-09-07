@@ -19,9 +19,10 @@ code {
 }
 
 .selections {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  align-items: center;
 }
 
 input[type="submit"] {

@@ -4,6 +4,7 @@ form {
 
 .message {
 	margin: .25em 0;
+	font-size: 1.75rem;
 }
 
 input[type="submit"], #cancel {
@@ -30,6 +31,6 @@ input[type="submit"]:hover{
 }
 
 .ui.segment {
-  padding: 1em 3em;
+  padding: 1em 2em;
 }
 
