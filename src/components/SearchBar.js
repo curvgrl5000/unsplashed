@@ -54,13 +54,13 @@ class SearchBar extends React.Component {
 	            value={this.state.search}
 	            placeholder='jamming, musical performances, solos' 
 	            onChange={e => this.setState({ search: e.target.value.toUpperCase() }) } />
-              <div className="selections">
-                <h1 className="message">{this.state.startString}<span className="start">{this.state.message}</span></h1>
-                <div className="buttons">  
-  	              <input type="submit" value="Submit" />
-  	              <input type="button" id="cancel" name="cancel" value="Cancel" onClick={(e) => this.onInputClickTwo(e)} />
-                </div>
-	            </div> 
+            <div className="selections">
+              <h1 className="message">{this.state.startString}<span className="start">{this.state.message}</span></h1>
+              <div className="buttons">  
+	              <input type="submit" value="Submit" />
+	              <input type="button" id="cancel" name="cancel" value="Cancel" onClick={(e) => this.onInputClickTwo(e)} />
+              </div>
+	          </div> 
           </div>
 	      </form>
 	    </div>
@@ -69,15 +69,3 @@ class SearchBar extends React.Component {
 }
 
 export default SearchBar;
-
-// Same exact results, they do the same thing:
-// Here we're defining a separate function ont he class:
-// <input type="text" onChange={this.onInputChange} /> 
-
-// Here we're using an error function, grabbing the event and doing the same thing the separate function was doing:
-// <input type="text" onChange={(e) => console.log(e.target.value)} />
-
-//https://stackoverflow.com/questions/43922508/clear-and-reset-form-input-fields/43922523
-
-// stephengrider.gitub.io/playgrounds/
-// CHECK OUT the THIS excercise.... 'this.js' and run it on RALLYCODING....
