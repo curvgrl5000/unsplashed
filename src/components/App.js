@@ -2,6 +2,8 @@ import React from 'react';
 import unsplash from '../api/unsplash.js'; 
 import SearchBar from './SearchBar';
 import ImageList from './imageList';
+import Footer from './footer';
+
 import './app.css';
 
 class App extends React.Component {
@@ -41,6 +43,7 @@ class App extends React.Component {
 	    <div className="ui container tinyForm">
 	      <SearchBar onSubmit={this.onSearchSubmit}/>
 	      <ImageList images={this.state.collection} error={this.state.error}/>
+        <Footer />
 	    </div>
 	  );
 	}

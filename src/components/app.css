@@ -2,6 +2,87 @@
 	margin-top: 2rem;
 }
 
+.curve_detail {
+    align-content: center;
+    color: white;
+}
+
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #2b9dd7;
+    left: 0;
+    padding: 0 1rem;
+}
+
+
+footer h4 {
+    font-weight: 300;
+}
+
+.info {
+	display: inline-block;
+	font-weight: 300;
+	margin: 0;
+}
+
+.social {
+    float: right;
+    display: inline-block;
+    width: 100%;
+}
+
+.social_bottom {
+    float: right;
+    list-style: none;
+}
+
+li.social-icons {
+    display: inline-block;
+    font-size: 1.25em;
+    padding-right: .5em;
+}
+
+.social-icons a {
+    padding: 1.25rem 0.5rem;
+    color: #fff;
+}
+
+.social-icons a {
+    padding: 1.25rem 0.25rem;
+    color: #ccc;
+}
+
+.social-icons a:hover, .social-icons a:active {
+    color: white;
+}
+
+
+.wag-logo {
+  height: 30px;
+  vertical-align: text-bottom;
+}
+
+img.wag-logo {
+  margin: 1em .125em;
+}
+
+.flex-grid-halves {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-grid-halves .col {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.flex-grid-thirds .col {
+  width: 32%;
+}
+
 @media only screen and (max-width: 767px){
 	form {
     margin-top: 1rem;

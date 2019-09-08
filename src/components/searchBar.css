@@ -15,6 +15,7 @@ input[type="submit"], #cancel {
 	padding: 12px;
 	cursor: pointer;
 	color: white;
+  border: 0;
 }
 
 input[type="submit"]:hover{
