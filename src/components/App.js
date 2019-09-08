@@ -9,7 +9,8 @@ class App extends React.Component {
   	super(props);
   	this.state = {
   		term:'',
-  		collection: []
+  		collection: [],
+      error: ""
   	}
   }
   
@@ -17,10 +18,15 @@ class App extends React.Component {
   	const response = await unsplash.get('https://api.unsplash.com/search/photos', {
   		params: {query: term},
   	});
-
-  	this.setState({ collection: response.data.results });
+    
+    if( response.data.results.length > 0 ){
+  	 this.setState({ collection: response.data.results });
+    } else {
+    this.setState({ error: "Sorry, nothing came back! Be more descriptive!" });
+    }
   }
-
+  
+  //Just another way to do it with a function here in APP.js instead of with ImageList
   displayImages(collection = this.state.collection){
   	const allImages = collection.map( ({description, id, urls}) => {
   		return <li key={id}><img src={urls.regular} alt={description} /></li> 
@@ -34,7 +40,7 @@ class App extends React.Component {
 	  return (
 	    <div className="ui container tinyForm">
 	      <SearchBar onSubmit={this.onSearchSubmit}/>
-	      	<ImageList images={this.state.collection} />
+	      <ImageList images={this.state.collection} error={this.state.error}/>
 	    </div>
 	  );
 	}

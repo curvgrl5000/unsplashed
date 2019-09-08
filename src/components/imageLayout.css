@@ -11,6 +11,12 @@
 	justify-self: center;
 }
 
+h2.noResults {
+  color: white;
+  animation: fadein 2s;
+  text-align: center;
+}
+
 .imageLayout img {
   width: 250px;
   grid-row-end: span 2;
