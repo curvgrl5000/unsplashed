@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
 
   onHandleSubmit = (e) => {
     e.preventDefault();
-    this.setState({ startString: 'Searching for: '})
+    this.setState({ startString: 'Searching for: '});
     this.setState({ message: `${this.state.search}`});
     this.setState({ search: " " });
     this.props.onSubmit(this.state.search);
@@ -38,6 +38,7 @@ class SearchBar extends React.Component {
   	// console.log("Something was clicked");
     this.setState({ search:'' });
   	this.setState({ message: ""});
+    this.setState({ startString: ''});
   }
 
   render() {
