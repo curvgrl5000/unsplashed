@@ -23,14 +23,20 @@ class App extends React.Component {
     if( response.data.results.length > 0 ){
   	 this.setState({ collection: response.data.results });
     } else {
-    this.setState({ error: "Sorry, nothing came back! Be more descriptive!" });
+      this.setState({ collection: [] });
+      this.setState({ error: "Sorry, nothing came back! Be more descriptive!" });
     }
+  }
+
+  onCancel = () => {
+    this.setState({ collection: [] });
+    this.setState({ error: ""});
   }
   
 	render() {
 	  return (
 	    <div className="ui container tinyForm">
-	      <SearchBar onSubmit={this.onSearchSubmit}/>
+	      <SearchBar onSubmit={this.onSearchSubmit} onCancel={this.onCancel}/>
 	      <ImageList images={this.state.collection} error={this.state.error}/>
         <Footer />
 	    </div>

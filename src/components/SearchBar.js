@@ -36,9 +36,10 @@ class SearchBar extends React.Component {
    onInputClickTwo(e){
    	e.preventDefault();
   	// console.log("Something was clicked");
-    this.setState({ search:'' });
-  	this.setState({ message: ""});
-    this.setState({ startString: ''});
+    this.setState({ search: "" });
+  	this.setState({ message: "" });
+    this.setState({ startString: "" });
+    this.props.onCancel();
   }
 
   render() {
@@ -58,7 +59,7 @@ class SearchBar extends React.Component {
               <h1 className="message">{this.state.startString}<span className="start">{this.state.message}</span></h1>
               <div className="buttons">  
 	              <input type="submit" value="Submit" />
-	              <input type="button" id="cancel" name="cancel" value="Cancel" onClick={(e) => this.onInputClickTwo(e)} />
+	              <input type="button" id="cancel" name="cancel" value="Clear" onClick={(e) => this.onInputClickTwo(e)} />
               </div>
 	          </div> 
           </div>
